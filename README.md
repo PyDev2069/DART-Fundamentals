@@ -1,6 +1,6 @@
 # Dart Fundamentals 🎯
 
-A comprehensive learning repository to master **Dart programming** from absolute basics to object-oriented programming and asynchronous coding. Perfect for anyone starting their journey into mobile app development with Flutter!
+A comprehensive learning repository to master **Dart programming** from absolute basics to object-oriented programming and asynchronous coding. Perfect for anyone starting their journey into mobile development with Flutter.
 
 ## 📚 What You'll Learn
 
@@ -13,6 +13,8 @@ This repository covers the complete Dart fundamentals curriculum:
 - ✅ **Functions** — Function definitions, parameters, arrow functions, function types
 - ✅ **Collections** — Lists, Maps, Sets with practical methods (filter, map, sort)
 - ✅ **Object-Oriented Programming** — Classes, constructors, inheritance, abstract classes, enums
+- ✅ **Advanced OOP Concepts** — Class modifiers (final, sealed), interfaces, records
+- ✅ **Exception Handling** — Try-catch blocks and custom exceptions
 - ✅ **Asynchronous Programming** — Futures and Streams
 - ✅ **Null Safety** — Dart's built-in null safety features
 
@@ -59,6 +61,27 @@ Master classes, inheritance, and design patterns:
 - **Getters_And_Setters.dart** - Encapsulation and property management
 - **Enums.dart** - Define enumerated types
 
+#### `Class Modifiers/` — Advanced Class Features
+Control class behavior and inheritance patterns:
+
+- **final.dart** - Immutable classes, final variables, and final methods
+- **sealed.dart** - Sealed classes for exhaustive pattern matching and restricted hierarchies
+
+#### `Exception Handling/` — Error Management
+Handle errors gracefully in your Dart programs:
+
+- **custom_exception.dart** - Create and throw custom exceptions, handle multiple exception types
+
+#### `INTERFACES/` — Interface Implementation
+Design contracts for your classes:
+
+- **interface1.dart** - Implement interfaces, multiple interface inheritance, and polymorphism
+
+#### `Records/` — Modern Data Structures
+Work with records for lightweight data grouping:
+
+- **record.dart** - Define and use records, pattern matching with records, return multiple values
+
 #### `ASYNC_CODING/` — Asynchronous Programming
 Handle async operations like network requests:
 
@@ -69,6 +92,11 @@ Handle async operations like network requests:
 A complete student management system demonstrating all concepts together:
 
 - **project.dart** - Build a Student report card system using classes, getters, Lists, and Maps
+
+#### `NOTE/` — Reference Materials
+Study guides and reference documentation:
+
+- **Dart_Reference_Guide_Part1.docx** - Comprehensive reference guide for Dart concepts
 
 ---
 
@@ -89,6 +117,12 @@ dart ASSIGNMENTS/assn1.dart
 
 # Run OOP concepts
 dart OOPS/Classes_And_Constructors.dart
+
+# Run advanced concepts
+dart "Class Modifiers/final.dart"
+dart "Exception Handling/custom_exception.dart"
+dart INTERFACES/interface1.dart
+dart Records/record.dart
 
 # Run the capstone project
 dart "PHASE 1 CAPSTONE/project.dart"
@@ -128,12 +162,21 @@ Explore the `OOPS/` folder in this order:
 
 **Then complete:** ASSIGNMENTS/assn7part1.dart → assn8part3.dart
 
-### **Phase 4: Advanced Topics** (Days 9-10)
+### **Phase 4: Advanced OOP & Patterns** (Days 9-10)
+Explore modern Dart features:
+
+1. `Class Modifiers/final.dart` — Understand final classes and immutability
+2. `Class Modifiers/sealed.dart` — Use sealed classes for pattern matching
+3. `INTERFACES/interface1.dart` — Design interfaces and polymorphism
+4. `Records/record.dart` — Work with records for data grouping
+5. `Exception Handling/custom_exception.dart` — Build robust error handling
+
+### **Phase 5: Advanced Topics** (Days 11-12)
 8. `null_safety.dart` — Null handling
 9. `ASYNC_CODING/future.dart` — Async/await
 10. `ASYNC_CODING/stream.dart` — Streams
 
-### **Phase 5: Capstone** (Day 11)
+### **Phase 6: Capstone** (Day 13)
 Build the complete project:
 
 - **`PHASE 1 CAPSTONE/project.dart`** — Real-world Student management system
@@ -197,6 +240,58 @@ void main() {
 }
 ```
 
+### Sealed Classes (Pattern Matching)
+```dart
+sealed class Vehicle {}
+
+class Car extends Vehicle {
+  void honk() => print("🚗 Beep!");
+}
+
+class Bike extends Vehicle {
+  void ring() => print("🏍️ Ring!");
+}
+
+void main() {
+  Vehicle v = Car();
+  
+  switch (v) {
+    case Car():
+      v.honk();
+    case Bike():
+      v.ring();
+  }
+}
+```
+
+### Records
+```dart
+// Simple record
+(String, int) person = ("Alice", 25);
+print(person.$1); // Alice
+print(person.$2); // 25
+
+// Named record
+({String name, int age}) user = (name: "Bob", age: 30);
+print(user.name);  // Bob
+
+// Return multiple values
+(String, int, bool) getData() => ("data", 42, true);
+```
+
+### Exception Handling
+```dart
+try {
+  int result = 10 ~/ 0;
+} on IntegerDivisionByZeroException {
+  print("Cannot divide by zero!");
+} catch (e) {
+  print("Unexpected error: $e");
+} finally {
+  print("Cleanup");
+}
+```
+
 ---
 
 ## 🎓 Tips for Success
@@ -207,6 +302,7 @@ void main() {
 4. **Read the Comments** — Each file has helpful comments explaining concepts
 5. **Understand Before Moving On** — Master fundamentals before jumping to OOP
 6. **Reference Back** — Use earlier files as reference when learning new concepts
+7. **Use the Reference Guide** — Check `NOTE/Dart_Reference_Guide_Part1.docx` for quick lookups
 
 ---
 
@@ -216,6 +312,8 @@ void main() {
 - [Dart Language Tour](https://dart.dev/guides/language/language-tour)
 - [Effective Dart](https://dart.dev/guides/language/effective-dart)
 - [Flutter Docs](https://flutter.dev/docs) (once you're ready to build apps!)
+- [Dart Records Guide](https://dart.dev/language/records)
+- [Sealed Classes](https://dart.dev/language/class-modifiers)
 
 ---
 
@@ -226,6 +324,7 @@ After completing all fundamentals:
 - **Learn Flutter** — Build mobile apps with Dart
 - **Explore Packages** — Use pub.dev packages
 - **Build Projects** — Create real-world applications
+- **Advanced Dart** — Mixins, extensions, and metaprogramming
 
 ---
 
@@ -235,13 +334,22 @@ After completing all fundamentals:
 A: Absolutely! This repo is designed for beginners. Just follow the recommended learning path.
 
 **Q: How long will this take?**  
-A: Typically 1-2 weeks if you dedicate a few hours daily and complete all assignments and the capstone.
+A: Typically 2-3 weeks if you dedicate a few hours daily and complete all assignments and the capstone.
 
 **Q: Can I skip sections?**  
 A: Not recommended. Each section builds on previous concepts. Follow the learning path for best results.
 
 **Q: Do I need Flutter installed?**  
 A: No! You only need the Dart SDK. Flutter will come later when you start building apps.
+
+**Q: What are sealed classes and when should I use them?**  
+A: Sealed classes restrict which classes can extend them, enabling exhaustive pattern matching. Great for modeling closed hierarchies like different vehicle types.
+
+**Q: What's the difference between final classes and sealed classes?**  
+A: A `final` class cannot be extended at all. A `sealed` class can only be extended by classes defined in the same library and enables exhaustive switch statements.
+
+**Q: What are records?**  
+A: Records are lightweight data structures that let you group multiple values together. They're perfect for returning multiple values from a function or grouping related data.
 
 ---
 
@@ -252,6 +360,6 @@ Good luck on your Dart journey! Remember: **consistency beats intensity**. Pract
 ---
 
 **Created by:** PyDev2069  
-**Last Updated:** 2026  
+**Last Updated:** 2026-09-02  
 **Language:** Dart  
 **Status:** Actively Learning 📚
