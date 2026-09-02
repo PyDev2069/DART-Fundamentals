@@ -17,6 +17,8 @@ mixin Flyable {
   }
 }
 
+
+
 class Bird extends Shape with Flyable{
   @override
   double area() => 0;
@@ -27,11 +29,23 @@ class Bird extends Shape with Flyable{
   }
 }
 
+
+//* from the companion guide
+mixin class Logger{
+  void log(String msg) => print("[LOG] $msg");
+}
+class Service extends Logger{}  //*like normal inheritance
+class Task with Logger{} //* like a mixin we studied already
+
+
 void main(){
   Square sq = Square(4);
   sq.describe();
   Bird b = Bird();
   b.area();
   b.fly();
+
+  Task().log("Task logged");
+  Service().log("Service Logged");
 }
 
